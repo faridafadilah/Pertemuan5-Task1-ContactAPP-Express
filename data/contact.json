@@ -1,17 +1,17 @@
 [
-    {
-        "nama": "Hisyam",
-        "email": "hisyam@gmail.com",
-        "nohp": "088537645890"
-    },
-    {
-        "nama": "Farida Fadilah",
-        "email": "rida@gmail.com",
-        "nohp": "088137645890"
-    },
-    {
-        "nama": "Rifqi Candra",
-        "nohp": "0817654354",
-        "email": "riboy@gmail.com"
-    }
+  {
+    "nama": "Farida Fadilah",
+    "email": "farida123@gmail.com",
+    "nohp": "08895644398"
+  },
+  {
+    "nama": "Boy Candra",
+    "email": "boy@gmail.com",
+    "nohp": "08826637239"
+  },
+  {
+    "nama": "Muhammad Hisyam",
+    "email": "hisyam@gmail.com",
+    "nohp": "08826637239"
+  }
 ]

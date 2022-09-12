@@ -1,0 +1,31 @@
+<!-- Content -->
+<div class="container">
+  <h1 class="text-center">Halaman Contact</h1>
+  <h4>Data Contact</h4>
+  <hr>
+  <!-- Cek Jika data Kosong -->
+  <% if (contacts.length <1) { %>
+    <div class="alert alert-danger" role="alert">Data Empty</div>
+  <% } else { %>
+    <table class="table table-striped">
+      <thead>
+        <tr style="background-color: rgb(95, 166, 207);">
+          <th scope="col">No</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Email</th>
+          <th scope="col">No Hp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% contacts.forEach((contact,i)=> { %>
+        <tr>
+          <th><%= i+1 %></th>
+          <td><%= contact.nama %></td>
+          <td><%= contact.email %></td>
+          <td><%= contact.nohp %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } %>
+</div>

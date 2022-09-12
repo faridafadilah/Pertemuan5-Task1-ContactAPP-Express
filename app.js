@@ -131,7 +131,7 @@ app.post('/contact/update', [
 app.get('/contact/:nama', (req, res) => {
   const contact = findContact(req.params.nama);
   res.render('detail', {
-    title: 'Halaman Edit Data',
+    title: 'Halaman Detail Data',
     layout: 'layouts/main-layouts',
     contact
   });

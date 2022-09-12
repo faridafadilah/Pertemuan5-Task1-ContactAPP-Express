@@ -1,5 +1,6 @@
 <div class="container">
     <h1>Halaman Tambah Data</h1>
+    <!-- Cek Jika error tidak bernilai undefined -->
     <% if (typeof errors !== 'undefined') { %>
         <div class="alert alert-danger" role="alert">
             <% errors.forEach(err => { %>
@@ -7,7 +8,7 @@
             <% }) %>
         </div>
     <% } %>
-    
+    <!-- Form Tambah Data -->
     <form action="/contact" method="post">
         <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>

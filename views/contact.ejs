@@ -2,6 +2,13 @@
 <div class="container">
   <h1 class="text-center">Data Contact</h1>
   <hr>
+    <!-- Flash Message  -->
+    <% if (msg.length !== 0) { %>
+      <div class="alert alert-success" role="alert">
+        <%= msg %> 
+      </div>
+    <% } %>
+
     <a href="/contact/add" class="btn btn-primary mb-2">Tambah Data</a>
     <table class="table table-striped">
       <thead>

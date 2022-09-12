@@ -1,6 +1,9 @@
 const express = require("express"); // Module Express
 const expressLayouts = require("express-ejs-layouts"); // Module Layout EJS
 const { body, validationResult, check } = require('express-validator'); // Express Validator
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
 const { 
   loadContact, 
   findContact, 
@@ -18,6 +21,18 @@ app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.use(express.static('public')); // Middleware untuk public(img,css)
 app.use(express.urlencoded({ extended: true })); // Untuk parsing body request
+
+//konfigurasi flash Message
+app.use(cookieParser('secret'));
+app.use(
+    session({
+        cookie: { maxAge: 6000 },
+        secret: 'secret',
+        resave: true,
+        saveUninitialized: true,
+    })
+);
+app.use(flash());
 
 // Url & Menampilkan FIle index.html
 app.get('/', (req, res) => {
@@ -45,6 +60,7 @@ app.get('/contact', (req, res) => {
     title: 'Halaman Contact',
     layout: 'layouts/main-layouts',
     contacts,
+    msg: req.flash('msg')
   });
 });
 
@@ -76,6 +92,7 @@ app.post('/contact', [
       });
     } else {
       addContact(req.body);
+      req.flash('msg', 'Berhasil Menyimpan Data!');
       res.redirect('/contact');
     }
 });
@@ -87,6 +104,7 @@ app.get('/contact/delete/:nama', (req, res) => {
     return res.send('Maaf Nama Contact tidak Ada!');
   }
   deleteContact(req.params.nama);
+  req.flash('msg', 'Berhasil Menghapus Data!');
   res.redirect('/contact');
 });
 
@@ -122,6 +140,7 @@ app.post('/contact/update', [
         });
     } else{
         updateContact(req.body);
+        req.flash('msg', 'Berhasil Mengupdate Data!');
         res.redirect('/contact');
     }
 });
